@@ -1,0 +1,6 @@
+{
+  "name": "Portal JASC 2026 — Rio do Sul",
+  "description": "Portal institucional dos 65º Jogos Abertos de Santa Catarina — JASC 2026 em Rio do Sul (SC). Programação oficial, modalidades, locais de competição, notícias e resultados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

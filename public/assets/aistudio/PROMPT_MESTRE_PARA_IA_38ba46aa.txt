@@ -1,0 +1,46 @@
+PROMPT MESTRE — RECONSTRUÇÃO VISUAL FIEL DO PORTAL JASC 2026
+
+PAPEL
+Você é um desenvolvedor front-end especialista em engenharia reversa de interfaces, React, TypeScript, CSS e reprodução visual pixel-perfect. Sua prioridade é fidelidade, não redesign.
+
+FONTE VISUAL PRINCIPAL
+A captura da página inicial enviada no arquivo 01_referencia_visual/captura_original_pagina_inicial.png é a especificação visual principal. Os recortes numerados da pasta 01_referencia_visual mostram as seções individuais da mesma página. Website de referência: https://pixel-perfect-picture-match-168.lovable.app
+
+IMPORTANTE SOBRE A CAPTURA: ela tem 370 × 2048 pixels, sendo uma versão reduzida de uma página longa. NÃO interprete 370px como a largura do layout original, nem calcule dimensões CSS absolutas a partir dela. Se tiver navegador disponível, abra o link e faça screenshots desktop reais (preferencialmente 1440px de largura) e mobile (390px) para medir proporções e validar o resultado. Se não tiver navegação, use a imagem como guia de composição, cores, ordem das seções e estilos; não finja ter validado o site.
+
+CÓDIGO EXISTENTE
+A pasta 02_codigo_base contém uma recriação independente em HTML/CSS/JavaScript (NÃO é o projeto original do Lovable). Reaproveite a estrutura e as funcionalidades úteis, corrija o que divergir da imagem. A pasta 03_referencias_extras contém um guia com links para imagens e marcas originais. Imagens institucionais e logos não devem ser reinventados por IA.
+
+CARACTERÍSTICAS VISUAIS OBRIGATÓRIAS
+- Identidade JASC 2026; estilo editorial esportivo, energético, limpo e institucional.
+- Cor predominante: verde profundo (#00552E aproximado, amostrado do screenshot); verde escuro para footer (#00381E aproximado). Fundo claro creme / off-white (#FFF7DF, #FEFAED aproximadamente), e amarelo pastel (#FFF0C4 aproximadamente). Acentos em laranja quente (#EF901C aproximadamente) e vermelho-alaranjado (#E44E21 aproximadamente). São AMOSTRAS do screenshot reduzido, não substituem as cores exatas se elas puderem ser obtidas no site.
+- Tipografia das grandes manchetes: muito condensada, pesada, em CAIXA ALTA, verde. Encontrar fonte visualmente próxima à referência real; não usar sans-serif genérica para títulos. Textos auxiliares simples e legíveis.
+- Separadores decorativos ondulados em faixas finas verde, amarela e alaranjada logo abaixo do header e acima do footer; respeitar o movimento da onda observado na captura.
+- Layout com bastante respiro, cantos arredondados, bordas sutis e sombras suaves; cards claros sobre fundo creme. Fundo verde profundo na seção de modalidades.
+- Hierarquia de texto e chamadas com pequenos rótulos em vermelho/laranja, grandes títulos verdes, botões verdes/laranjas e ícones redondos amarelos.
+
+SEQUÊNCIA E COMPOSIÇÃO DA PÁGINA INICIAL — reproduzir na ordem da captura
+1) HEADER compacto claro: logotipo JASC à esquerda; menu horizontal INÍCIO / PROGRAMAÇÃO / MODALIDADES / LOCAIS / NOTÍCIAS / RESULTADOS; botão destacado 'VER PROGRAMAÇÃO' à direita. Barra ondulada tricolor abaixo.
+2) HERO creme-claro com microetiqueta de identificação; título enorme de quatro linhas '65º JOGOS ABERTOS DE SANTA CATARINA' à esquerda; faixa laranja/vermelha '14 A 28 DE NOVEMBRO DE 2026'; texto introdutório; linha de chamada para abertura (conteúdo sujeito a atualização); CTA 'EXPLORAR PROGRAMAÇÃO' preenchido, CTA 'CONHEÇA OS LOCAIS' contornado; grande foto de múltiplos atletas à direita sobre forma curva/gradiente amarelo-laranja. Alinhar proporções e bordas da foto à captura.
+3) FAIXA DE MARCAS E ORGANIZAÇÃO centralizada sob o hero, em um card horizontal claro, seguida de pequena faixa de informação de transmissão quando presente na referência.
+4) AVISO DE PROTÓTIPO em card largo amarelo claro, borda fina, ícone redondo e link 'SAIBA MAIS'. Preservar o aviso de que agenda/modalidades podem conter demonstrações.
+5) PROGRAMAÇÃO POR DATA: rótulo pequeno; manchete 'O QUE ACONTECE HOJE?'; link 'Ver o dia completo'; seletor horizontal de datas com mini-cards, dia ativo em verde profundo; informação do dia e card de atividade com hora grande verde, esporte/modalidade, título, local, badge de status e ação 'DETALHES'.
+6) PRÓXIMAS COMPETIÇÕES: título grande verde; link 'Programação'; cartões horizontais empilhados, bordas suaves, hora em destaque à esquerda, conteúdo central, badge e detalhes à direita.
+7) MODALIDADES: seção full-width verde escuro; rótulo amarelo; título amarelo-creme 'EXPLORE AS MODALIDADES'; botão pequeno 'TODAS'. Grid de 4 colunas x 2 linhas no desktop na captura: CERIMÔNIAS, ATLETISMO, NATAÇÃO, VOLEIBOL, FUTSAL, JUDÔ, CICLISMO, BASQUETE. Cada card usa fotografia esportiva, overlay/gradiente verde-escuro, nome em branco, quantidade de atividades e pequeno ícone circular amarelo. Manter cards visuais, não transformá-los em listas simples.
+8) LOCAIS DE COMPETIÇÃO: retorno ao fundo creme; 'LOCAIS DE COMPETIÇÃO'; link 'Ver todos'; seis cards claros compactos em duas colunas no desktop da referência, com nome, pequeno endereço/texto e ícone circular amarelo à direita.
+9) ÚLTIMAS NOTÍCIAS: seção creme, três cards lado a lado no desktop; área grande de imagem em cima (alguns blocos gráficos claros com ícone de megafone, outro laranja); dados de categoria/data; título, resumo e 'LER COMUNICADO'.
+10) RESULTADOS: banner largo arredondado com gradiente quente laranja para vermelho, texto branco 'ACOMPANHE OS RESULTADOS', pequeno kicker, descritivo e botão verde 'ACESSAR RESULTADOS'. Detalhe de troféu estilizado translúcido à direita.
+11) Separador ondulado tricolor e FOOTER verde quase preto: logo à esquerda, colunas de navegação e organização, texto legal, área central de marcas da realização, indicador/controle visual de movimento conforme referência.
+
+REGRAS DE IMPLEMENTAÇÃO
+- Reconstrua primeiro a página inicial exatamente na ordem e com a hierarquia visual da captura. Depois implemente as rotas internas a partir do link publicado e do código anexado, sem inventar layouts não observados.
+- Use o site publicado para verificar cores, fonte, imagens, espaçamentos, comportamento e responsividade sempre que houver acesso. A captura prevalece sobre o código-base em caso de divergência visual na página inicial.
+- Todas as imagens de atletas, modalidades e marcas oficiais devem vir dos arquivos/referências originais, quando disponíveis e autorizados. Nada de imagens de banco aleatórias, emojis no lugar dos ícones oficiais ou logos recriados com texto.
+- Implemente HTML/CSS/componentes reais editáveis, não uma imagem estática da página inteira.
+- Preserve navegação, datas selecionáveis, filtros, links, estados de hover, botões e comportamento responsivo. Os dados demonstrativos devem ser rotulados como demonstrativos; não invente resultados ou eventos oficiais.
+- Use React + TypeScript + Tailwind + Vite se apropriado ao ambiente, ou reaproveite HTML/CSS/JS se isso facilitar maior fidelidade. Priorize aparência e funcionalidades sobre preferências de framework.
+- Faça screenshots do projeto rodando e compare, seção por seção, com a captura. Corrija tipografia, altura das seções, proporção dos cards, cores, imagens, raios, sombras, espaçamentos e grid. Se não for possível acessar o original ou abrir uma prévia, relate as limitações explicitamente.
+- Desktop primeiro (baseado na captura de página inteira), depois implemente mobile com evidência do site real. Não achate o grid desktop em 370px só porque a imagem fornecida foi reduzida a essa largura.
+
+ENTREGA
+Entregue o código completo executável, prévia navegável, rotas internas e um resumo das diferenças remanescentes em relação à referência. NÃO faça redesign, NÃO acrescente elementos gratuitos e NÃO afirme pixel-perfect sem comparação real. Comece inspecionando os arquivos do pacote e a referência.

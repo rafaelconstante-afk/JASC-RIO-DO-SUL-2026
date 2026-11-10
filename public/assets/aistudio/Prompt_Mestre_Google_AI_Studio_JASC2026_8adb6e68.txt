@@ -1,0 +1,196 @@
+# PROMPT MESTRE DEFINITIVO — PORTAL INSTITUCIONAL JASC 2026
+## Reconstrução visual fiel + programação oficial + painel administrativo + preparação para Supabase
+
+Você é uma equipe sênior de desenvolvimento, reunindo especialista em React/TypeScript, designer de interfaces pixel-perfect, engenheiro de dados, especialista em Supabase e profissional de acessibilidade digital.
+
+Desenvolva e evolua o portal institucional dos **65º Jogos Abertos de Santa Catarina — JASC 2026**, em **Rio do Sul (SC)**, com site público navegável e painel administrativo. O endereço institucional planejado é `jasc2026.riodosul.sc.gov.br`.
+
+**REFERÊNCIA VISUAL PRINCIPAL:** https://pixel-perfect-picture-match-168.lovable.app
+**REFERÊNCIA DOCUMENTAL PRINCIPAL:** imagens da página inicial e recortes visuais que estou anexando.
+**BASE DE CÓDIGO:** arquivos anexados `index.html`, `styles.css`, `app.js`, `README.md` e demais componentes, quando disponíveis.
+**DADOS OFICIAIS A IMPORTAR, SE ANEXADOS:** `JASC_2026_Dados_Programacao_Site.json` e eventual PDF de origem da Fesporte.
+
+## 0. ORDEM DE PRIORIDADE E REGRAS INEGOCIÁVEIS
+
+1. Para o visual: o **site original publicado e as capturas fornecidas** prevalecem sobre o código de recriação; os arquivos do código são referência funcional, NÃO uma especificação visual definitiva.
+2. Para os dados esportivos: o **JSON oficial fornecido e as revisões feitas pela equipe** prevalecem sobre os registros demonstrativos. Nunca invente horários, confrontos, locais, endereços ou resultados.
+3. Para mudanças em projeto existente: preserve rotas, componentes, dados já revisados e estrutura atual. **Não faça redesign e não recrie o projeto do zero se o projeto React original estiver presente.**
+4. Para marcas: utilize somente logotipos oficiais disponibilizados ou recursos originais verificáveis. Não redesenhe logos com IA, não escreva textos substituindo as marcas e não substitua fotos oficiais por imagens aleatórias.
+5. Para segurança: acesso público sem login; painel administrativo com autenticação real somente quando o backend autorizado estiver configurado. Nunca apresente uma simulação como sistema real.
+6. Para produção: não altere domínio, deploy, hospedagem, credenciais, políticas de segurança ou dados existentes de produção sem apresentar plano e receber aprovação expressa da equipe de TI.
+7. Todo o site e painel em português brasileiro. Horários e datas no fuso `America/Sao_Paulo`.
+
+## 1. INSPEÇÃO INICIAL DOS ARQUIVOS — PRIMEIRO PASSO OBRIGATÓRIO
+
+Antes de editar, examine o projeto atual: lista de arquivos, dependências, stack, componentes, rotas, estilos, recursos visuais, fontes, fontes de dados, comandos de execução e eventuais integrações com backend.
+
+Identifique qual dos cenários existe:
+- **Cenário A — Projeto original do Lovable/React importado:** continue esse projeto, preservando os componentes e a interface. Faça diagnóstico primeiro; não altere decisões visuais aprovadas por conta própria.
+- **Cenário B — Recriação independente HTML/CSS/JS:** esses arquivos são apenas uma base auxiliar. Crie a aplicação editável em React + TypeScript + Vite + Tailwind CSS, aproveitando o código útil e reproduzindo a captura original como referência visual principal.
+
+Os arquivos `index.html`, `styles.css` e `app.js` podem ter origem em uma recriação independente, diferente do código original do Lovable. Não os trate como identidade visual oficial.
+
+Na resposta inicial, apresente um **diagnóstico curto**: situação encontrada, arquivos de referência reconhecidos, diferenças visuais relevantes, dados disponíveis/ausentes, funcionalidades reais ou demonstrativas e plano de implementação. **Em seguida, no Cenário B, avance com a criação local e a prévia funcional**, sem esperar nova autorização para tarefas reversíveis dentro do ambiente de desenvolvimento. No Cenário A, preserve o design existente; se forem necessárias mudanças visuais substanciais, descreva-as e solicite aprovação antes de aplicá-las.
+
+## 2. REFERÊNCIAS VISUAIS E FIDELIDADE PIXEL PERFECT
+
+Analise estes arquivos, quando anexados, mesmo que estejam soltos fora de um ZIP:
+- `captura_original_pagina_inicial.png` — referência integral da página inicial;
+- `01_cabecalho_hero.png`;
+- `02_prototipo_programacao.png`;
+- `03_proximas_competicoes.png`;
+- `04_modalidades.png`;
+- `05_locais_de_competicao.png`;
+- `06_ultimas_noticias.png`;
+- `07_resultados_e_rodape.png`;
+- `guia_visual_jasc2026.html` e `REFERENCIAS_E_PROMPT.txt`, quando disponíveis.
+
+**ATENÇÃO:** a captura longa fornecida tem aproximadamente **370 × 2048 pixels**, mas representa uma página completa **reduzida**. Ela NÃO comprova que o site original tinha 370px de largura e NÃO deve ser interpretada automaticamente como layout mobile. A grade de quatro cards na seção de modalidades e as seções com múltiplas colunas indicam composição desktop reduzida. Use a captura para definir sequência, hierarquia, composição, cores e elementos, e consulte a URL original para obter medidas, responsividade e tipografia exatas, caso o ambiente permita. Se não puder navegar ou capturar imagens do site, admita a limitação em vez de afirmar fidelidade pixel-perfect comprovada.
+
+Características visuais obrigatórias:
+- Verde institucional profundo próximo de `#00552E`, verde muito escuro próximo de `#00381E`, fundos creme próximos de `#FFF7DF`/`#FFF0C4`, laranja quente próximo de `#EF901C`, vermelho-alaranjado próximo de `#E44E21`. São aproximações; priorize a referência original.
+- Grandes títulos muito condensados, pesados e em MAIÚSCULAS, semelhantes à tipografia esportiva vista no print; textos auxiliares discretos e legíveis. Investigue a fonte real; não substitua por sans-serif genérica.
+- Separadores orgânicos em faixas finas sobrepostas de verde, amarelo e laranja logo após o cabeçalho e antes do rodapé.
+- Seções claras em creme com bastante respiro, cantos arredondados, bordas sutis e sombras delicadas.
+- Ícones pequenos circulares amarelos, rótulos superiores pequenos em vermelho/laranja, títulos verdes grandes, botões preenchidos e contornados com alto contraste.
+- Seção “Explore as modalidades” sobre fundo verde-escuro, com cards fotográficos e gradiente verde sobre as imagens.
+- Banner de resultados em gradiente laranja → vermelho, texto branco e botão verde.
+
+**A página inicial deve reproduzir esta sequência exata:**
+1. Header compacto com logo JASC, links Início, Programação, Modalidades, Locais, Notícias, Resultados e CTA “Ver programação”.
+2. Faixas onduladas tricolores sob o header.
+3. Hero creme: selo pequeno, título enorme “65º JOGOS ABERTOS DE SANTA CATARINA” à esquerda; faixa de datas “14 A 28 DE NOVEMBRO DE 2026”; menção a Rio do Sul; abertura em 14/11, às 19h; botões “Explorar programação” e “Conheça os locais”; composição fotográfica com atletas à direita, fundo/forma em laranja e amarelo.
+4. Card centralizado de marcas de realização/organização.
+5. Card de aviso “Portal em fase de protótipo” **somente enquanto houver dados demonstrativos**, sem desvalorizar conteúdo já revisado e publicado.
+6. “O QUE ACONTECE HOJE?” com seletor horizontal de dias, dia selecionado destacado em verde, informações do período e cards de atividades.
+7. “PRÓXIMAS COMPETIÇÕES” com cartões horizontais empilhados, horário grande, modalidade, disputa, local e status.
+8. “EXPLORE AS MODALIDADES” com fundo verde profundo; cards com foto, overlay, nome e contagem de atividades; na referência aparecem Cerimônias, Atletismo, Natação, Voleibol, Futsal, Judô, Ciclismo e Basquete.
+9. “LOCAIS DE COMPETIÇÃO” em cards compactos claros, com nome, breve informação e ícone circular amarelo.
+10. “ÚLTIMAS NOTÍCIAS” em cards com capa, categoria, data, título, resumo e “Ler comunicado”.
+11. Banner “ACOMPANHE OS RESULTADOS” em gradiente quente com botão “Acessar resultados” e troféu decorativo sutil.
+12. Separadores tricolores e rodapé verde-escuro com logo, navegação, organização, marcas de realização e informações institucionais.
+
+Não simplifique essas seções em tabelas genéricas. Não apresente uma screenshot única como site; todo elemento deve ser HTML/CSS e componente editável. Não invente outras seções nem modifique a identidade aprovada.
+
+Assets originais já identificados, a verificar e aproveitar se os arquivos locais estiverem ausentes e houver permissão:
+- Hero: `https://pixel-perfect-picture-match-168.lovable.app/assets/hero-athletes-DbjhHNOR.jpg`
+- Logo JASC SVG: `https://pixel-perfect-picture-match-168.lovable.app/__l5e/assets-v1/c90952ce-6b6d-4b34-9cd3-1d818419a572/jasc-2026-logo.svg`
+- Logos realização: `https://pixel-perfect-picture-match-168.lovable.app/__l5e/assets-v1/1659094d-0f64-4a33-b7f8-aa2e75997bcc/logos-realizacao.png`
+- Arte notícia abertura: `https://pixel-perfect-picture-match-168.lovable.app/__l5e/assets-v1/247e9626-c83e-4fed-b85d-2647381d93de/card-abertura-nova-arena.jpg`
+
+Se possível, guarde cópias locais dos arquivos autorizados para não depender permanentemente de URLs externas. Verifique se os links funcionam; se falharem, não substitua as imagens institucionais por improvisações.
+
+## 3. PÁGINAS PÚBLICAS E FUNCIONALIDADES
+
+Crie ou preserve as rotas de **Início, Programação, Modalidades, Locais, Notícias e Resultados**. Garanta navegação por links diretos, atualização e histórico do navegador, com fallback adequado à futura hospedagem na Cloudflare Pages.
+
+**Programação:** componente central do portal, com datas de 14 a 28 de novembro de 2026, opção “Hoje”, seleção horizontal de dias, filtros por modalidade/categoria/local/status, busca por município/participante, cards adequados tanto a disputas individuais quanto coletivas, horários e links de detalhes. Status possíveis: Prevista, Confirmada, Alterada, Cancelada e Encerrada. Modalidades que possuam somente período geral devem exibir período e local, sem criar eventos fictícios. Datas fora dos Jogos não devem receber competições inventadas; se “Hoje” estiver fora do período, apresentar estado vazio verdadeiro e acesso ao próximo dia com atividades.
+
+**Modalidades:** grade visual e página individual com imagem oficial, descrição, categorias feminina e masculina agrupadas, submodalidades quando pertinentes, períodos específicos, locais e agenda relacionada. Ciclismo, tiros e triathlon podem possuir diferentes especialidades e locais: preserve essa organização.
+
+**Locais:** nome oficial, endereço somente quando fornecido, modalidades, programação relacionada e botão “Como chegar” para o link Google Maps constante nos dados. Não fabrique localizações.
+
+**Notícias:** listagem, categorias, data, capa, detalhes, rascunhos e pré-visualização administrativa; avisos institucionais de destaque.
+
+**Resultados:** links administráveis a fontes oficiais. Não crie placares nem integrações automáticas inexistentes.
+
+A programação poderá usar a experiência de filtro/seleção de datas do LoL Esports como inspiração de USABILIDADE, mas JAMAIS sua identidade visual. O design obrigatório é o do portal JASC fornecido.
+
+## 4. IMPORTAÇÃO DOS DADOS DA FESPORTE
+
+Procure especificamente `JASC_2026_Dados_Programacao_Site.json` entre os anexos. **Se estiver ausente, diga que falta o arquivo e não simule a importação.** Se existir, inspecione o esquema real do JSON antes de criar mapeamentos.
+
+O material descrito pelo responsável prevê **38 registros de modalidade/categoria referentes a 31 modalidades e 347 confrontos extraídos automaticamente**. Trate esses números como expectativas a verificar no arquivo real, nunca como dados já importados sem conferência.
+
+Procedimento:
+1. Validar JSON, tipos, datas, campos opcionais, duplicidades e referências de locais/modalidades.
+2. Fazer importação sem descaracterizar o arquivo original, incluindo identificação do documento e número da página do PDF de origem quando disponíveis.
+3. Preservar categorias, submodalidades, períodos, locais, endereços e links de mapas existentes nos dados.
+4. Todos os **347 confrontos extraídos automaticamente**, caso realmente existam, devem entrar como **RASCUNHO / PENDENTE DE VALIDAÇÃO**, invisíveis ao público até aprovação explícita.
+5. Valores de chave de torneio como “VENC JG 1”, “PERD JG 2” ou semelhantes jamais podem ser apresentados como nomes de atletas, municípios ou equipes confirmados. Exiba-os no painel como referências pendentes.
+6. Não inferir ou completar horários, equipes, municípios, locais, endereços e resultados ausentes.
+7. Caso exista banco de dados, preparar importação idempotente, evitar duplicações e NÃO sobrescrever dados corrigidos manualmente. Apresentar comparação/diff e conflitos para revisão.
+8. Caso não haja banco configurado, usar JSON local como fonte demonstrativa de consulta e informar claramente que edições não são sincronizadas entre dispositivos.
+9. Exibir contagens reais de registros importados, erros e pendências.
+
+## 5. PAINEL ADMINISTRATIVO `/admin`
+
+Crie um painel simples e didático para servidores da Prefeitura, com menus: Visão geral, Programação, Modalidades, Locais, Notícias, Avisos, Resultados e Configurações.
+
+**Visão geral:** contagens reais, conteúdo aguardando revisão, últimos registros alterados, atalhos. **Programação:** tabela filtrável com data, hora, modalidade, categoria, participantes/título, local, status, estado de publicação e ações Criar, Editar, Duplicar, Pré-visualizar, Publicar, Despublicar, Cancelar e Excluir.
+
+Formulários em português com: título, modalidade, submodalidade, categoria, início/fim, data, hora, participantes/equipes opcionais, local, status esportivo, observações, página/fonte de origem, link de resultado, visibilidade e pré-visualização. Incluir mensagens reais de sucesso/erro, confirmação para exclusão e controles de validação de dados.
+
+Registros importados devem ter fila de revisão, comparação com fonte original (quando fornecida), indicação de campos incompletos e aprovação individual ou em lote após confirmação explícita.
+
+**Separar dois conceitos:**
+- `status_esportivo`: prevista, confirmada, alterada, cancelada, encerrada;
+- `status_publicacao`: rascunho, pendente_validacao, publicado, despublicado.
+
+Não permitir que status de programação signifique automaticamente publicação. Prévia de rascunhos deve exigir autorização administrativa quando houver backend.
+
+## 6. BACKEND, AUTENTICAÇÃO E PERSISTÊNCIA — EM ETAPAS SEGURAS
+
+Priorize **Supabase (PostgreSQL + Auth)** para a versão real, com frontend preparado para Cloudflare Pages. Mas não assuma que o Google AI Studio possui conexão configurada ou credenciais disponíveis.
+
+**Etapa inicial sem Supabase:** entregar frontend funcional e painel em “MODO DEMONSTRAÇÃO”, com dados locais identificados e estrutura de serviços preparada para conexão. Não fingir login seguro, sincronização em tempo real ou salvamento no servidor.
+
+**Etapa de implementação Supabase em ambiente autorizado:** gerar migrações SQL e integração tipada para entidades de modalidades, categorias/submodalidades, locais, atividades/programação, participantes, notícias, avisos, fontes de resultados, perfis administrativos, importações e histórico de auditoria. Utilizar relacionamentos, chaves estrangeiras, índices e validações apropriadas. Avaliar modelagem antes de executar migrações.
+
+Regras de segurança obrigatórias:
+- Portal público lê apenas registros `publicado` e visíveis.
+- `/admin` requer autenticação REAL com sessão válida e perfil administrativo autorizado; visitas não autenticadas devem ser redirecionadas a login.
+- **Sem cadastro público de administradores.** Administração e convites devem depender de aprovação da Prefeitura.
+- Habilitar RLS em todas as tabelas aplicáveis e políticas restritivas no banco; ocultar botões no frontend não constitui segurança.
+- Não usar `service_role` no navegador nem expor segredos, tokens privados ou credenciais nos commits. Chave pública de cliente apenas onde permitido, com RLS corretamente configurado.
+- Salvar `created_at`, `updated_at`, `created_by`, `updated_by` e registrar alterações administrativas em trilha de auditoria confiável.
+- Implementar CRUD administrativo completo com erros tratados e políticas de acesso revisadas.
+- Garantir que mudanças publicadas apareçam no portal por consulta em tempo de execução, invalidação de cache e, quando viável, Supabase Realtime; não depender de recompilar/republicar o frontend. Se usar polling, explicar o intervalo.
+- Importar/exportar CSV com cabeçalhos em português e tratamento seguro de formatação, caracteres especiais e duplicatas.
+- Não incluir placares automáticos, pagamentos, chat ou funcionalidades supérfluas.
+
+**PONTO DE APROVAÇÃO:** antes de ativar banco real, migrar dados existentes, criar usuários administradores, mudar domínio, configurar deploy ou publicar em produção, apresentar impacto, passos, permissões e rollback, aguardando autorização. Nunca alegar que a conexão está pronta se faltarem credenciais ou acesso autorizado.
+
+## 7. ARQUITETURA E ACESSIBILIDADE
+
+Tecnologias preferenciais: React + TypeScript + Vite + Tailwind CSS + componentes reutilizáveis, React Router e integração Supabase quando autorizada. Caso exista um projeto original diferente já funcional, privilegie sua continuidade e evite migração desnecessária.
+
+Organize componentes e páginas, serviços de dados, modelos tipados, validação, assets e estilos. Mantenha conteúdos e fotos separados da apresentação. Preparar exportação GitHub e deploy Cloudflare Pages com variáveis de ambiente e roteamento compatíveis. Não alterar produção por conta própria.
+
+Garantir WCAG 2.2 AA como meta: contraste, foco visível, navegação por teclado, labels, mensagens de erro acessíveis, textos alternativos, estados além da cor, preferência por movimento reduzido, HTML semântico e áreas clicáveis confortáveis. Testar responsividade em 375, 390, 430, 768, 1366, 1440 e 1920px.
+
+## 8. CONTEÚDO INSTITUCIONAL E VERACIDADE
+
+- Evento: **65º Jogos Abertos de Santa Catarina — JASC 2026**.
+- Cidade-sede: **Rio do Sul, Santa Catarina**.
+- Período: **14 a 28 de novembro de 2026**.
+- Abertura oficial e inauguração da nova arena: **14/11/2026, às 19h**.
+- Uso obrigatório dos logotipos oficiais JASC, Fesporte, Governo de Santa Catarina, SEMEL e Governo de Rio do Sul, conforme arquivos fornecidos.
+
+Qualquer outra competição, horário, endereço, participante, notícia ou resultado que não seja sustentado pelos dados fornecidos não deve ser apresentado como informação oficial. Se houver dados demonstrativos, identifique-os visivelmente, sem misturá-los a dados validados.
+
+## 9. TESTES, COMPARAÇÃO E CRITÉRIOS DE ACEITE
+
+Após criar a aplicação, execute-a e apresente uma prévia. Teste:
+- Fidelidade do cabeçalho, hero e todas as 12 áreas da home em comparação com as imagens de referência.
+- Título condensado, proporções, cores, ondas, distribuição das fotos, quantidade de colunas, alturas dos cards e gradientes.
+- Menu desktop/mobile, rotas, navegação de datas, filtros, busca, estados vazios e links de mapas.
+- Páginas individuais de modalidades, locais, notícia e detalhes de atividades.
+- Painel administrativo, validação de formulários, importação e publicação, distinguindo claramente o que é demonstração do que está conectado de verdade.
+- Ausência de dados oficiais inventados e ausência de confrontos pendentes no site público.
+- Acessibilidade, carregamento e responsividade.
+
+Quando possível, compare screenshots reais em viewport equivalente. Se não puder acessar o site original ou obter screenshots em alta resolução, informe a limitação e as diferenças que não puderam ser verificadas. Não declare que está “100% pixel-perfect” sem evidência.
+
+## 10. ORDEM DE EXECUÇÃO E ENTREGA
+
+**Fase 1 — Diagnóstico:** identificar estrutura recebida, fontes visuais, dados presentes, diferenças e limitações. Exibir resumo curto.
+**Fase 2 — Interface:** construir ou preservar a Home fiel, rotas públicas, conteúdo reutilizável e responsividade, disponibilizando prévia.
+**Fase 3 — Dados:** importar o JSON oficial, se anexado, vincular programação/modalidades/locais, montar fila de revisão e impedir exposição de registros pendentes.
+**Fase 4 — Painel:** CRUD e pré-visualização em modo demonstrativo até que exista backend autorizado; distinguir sempre dados locais de dados reais.
+**Fase 5 — Supabase:** preparar arquitetura, migrations, RLS, autenticação e sincronização; conectar somente com acesso e autorização apropriados, sem modificar produção inadvertidamente.
+**Fase 6 — Validação:** testar, comparar telas e apresentar pendências reais.
+
+**Entregue:** projeto executável, preview navegável, Home com alta fidelidade, páginas públicas, programação filtrável, painel administrativo, resumo do que está real e do que é demonstração, checklist dos arquivos/dados faltantes e plano objetivo para conectar Supabase e publicar em Cloudflare Pages.
+
+**INSTRUÇÃO FINAL:** Meu objetivo não é criar um portal apenas inspirado no JASC. É manter visualmente o portal já aprovado e transformá-lo em um sistema institucional confiável. Não redesenhe a interface, não invente dados, não simule segurança de produção. Comece examinando TODOS os arquivos anexados, apresente o diagnóstico e avance com a implementação segura no ambiente de desenvolvimento.

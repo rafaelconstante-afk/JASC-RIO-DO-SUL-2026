@@ -1,0 +1,79 @@
+# ATUALIZAR O SITE EXISTENTE — IMPORTAÇÃO COMPLETA JASC 2026
+
+Estou continuando o portal institucional dos 65º Jogos Abertos de Santa Catarina — JASC 2026, desenvolvido neste mesmo projeto. O design atual foi aprovado. NÃO crie outro site, NÃO redesenhe a home e NÃO apague conteúdo ou configurações existentes.
+
+OBJETIVO: importar, de uma só vez, a programação oficial organizada no arquivo anexo `JASC2026_IMPORTAR_NO_SITE.json`, sem me obrigar a cadastrar cada atividade manualmente, e disponibilizar uma agenda compreensível, filtrável e fácil de atualizar pela equipe da Prefeitura de Rio do Sul.
+
+1. ANALISE O PROJETO E O ARQUIVO ANTES DE ALTERAR
+- Identifique as rotas, componentes, fontes de dados e infraestrutura já existentes (frontend estático, banco de dados, autenticação e painel).
+- Leia diretamente o arquivo JSON anexado como dado estruturado; não reconstrua registros a partir de exemplos nem peça para eu colar centenas de linhas na conversa.
+- O arquivo tem: `locais` (31), `eventos` (487, entre eles 379 confrontos), `inscricoes_por_municipio` (915 registros) e flags para 39 confrontos que envolvem Rio do Sul. Preserve os IDs `id_origem`.
+- Não trate `inscricoes_por_municipio` como partidas: são inscrições de cidades em modalidades/categorias, sem adversário ou horário individual obrigatoriamente definido.
+
+2. IMPORTAÇÃO AUTOMÁTICA E SEGURA
+- Crie um importador em lote que carregue todos os registros do JSON para a estrutura atual do projeto, reutilizando tabelas e modelos que já existam.
+- Use `id_origem` como chave externa estável para impedir registros duplicados se o arquivo for importado novamente. Se já existir uma chave equivalente, estabeleça um mapeamento persistente.
+- Preserve as edições feitas manualmente pela equipe: na reimportação, não sobrescreva alterações humanas sem mostrar um comparativo e obter aprovação.
+- Faça validação de campos, datas ISO, horários HH:mm, naipe/categoria, locais, município A, município B, fase, observações e página de origem. Preserve campos ausentes como ausentes; não invente informações.
+- Antes de efetivar, apresente uma tela de prévia com quantidade de registros, campos ausentes, duplicidades detectadas e erros de formato. Ofereça confirmação única para importar o lote inteiro.
+- O resultado da importação deve mostrar quantos itens foram criados, atualizados, ignorados e rejeitados. Se a importação falhar, preserve os dados originais e permita repetir com segurança.
+- Todos os registros novos deverão iniciar com `status_editorial = PENDENTE_REVISAO` e `publicado = false`. Permita aprovação/publicação em lote por data, modalidade ou todos os registros selecionados, sem exigir publicação individual de centenas de linhas. Não publique silenciosamente informações ainda não validadas.
+- A equipe deve conseguir corrigir uma linha e publicar somente aquela linha quando necessário.
+
+3. ORGANIZAÇÃO DAS INFORMAÇÕES NO SITE
+Manter a identidade JASC 2026, os arquivos de logos oficiais, as cores verde/creme/laranja/amarelo e a navegação já aprovada.
+
+A página "Programação" deve listar atividades em ordem de data e horário, em linhas ou cards compactos. Cada item deve apresentar:
+- Modalidade e título da prova/atividade;
+- Categoria/naipe (Feminino, Masculino, Misto ou outro valor literal fornecido no arquivo);
+- Confronto com município A × município B, se ambos estiverem definidos; caso contrário, a fase/prova e "participantes a definir" quando pertinente;
+- Data, horário e local completo;
+- Situação exibida como "Previsto na programação" enquanto não houver atualização oficial;
+- Observações/fase, se relevantes.
+
+No detalhe do evento, apresentar nome do local + rua/número + bairro + cidade/SC, conforme o que estiver disponível no arquivo. Não inferir endereços ausentes. Usar o link oficial de mapa existente no cadastro do local para "Como chegar"; se faltar link válido, não criar um link falso.
+
+Criar filtros combináveis por data, modalidade, categoria, município participante, local e situação; incluir busca por nome da cidade e botão "Hoje". Aplicar fuso horário America/Sao_Paulo.
+
+IMPORTANTE: quando um registro representar apenas o período da modalidade, e não um confronto marcado, exibir "período de competição" e "horário individual não informado", sem criar jogos diários fictícios. Atividades técnicas e cerimônias devem permanecer corretamente identificadas como tipos diferentes de competição.
+
+4. RIO DO SUL EM DESTAQUE
+- Criar a opção destacada "Só Rio do Sul" e uma seção "Rio do Sul em destaque" na home ou na agenda.
+- Usar o campo `destaque_rio_do_sul` para destacar somente partidas cujo município Rio do Sul esteja explicitamente em A ou B. O arquivo contém 39 desses confrontos na programação fornecida.
+- Não destacar automaticamente todos os jogos disputados DENTRO de Rio do Sul: município sede/local da disputa não é o mesmo que equipe participante.
+- Mostrar também, em bloco separado e claramente identificado, as inscrições de Rio do Sul em modalidades individuais, sem atribuir adversários ou horários não indicados no documento.
+- Se um confronto futuro ainda depender de eliminatórias, não presumir a classificação de Rio do Sul.
+
+5. PAINEL ADMINISTRATIVO
+Preservar `/admin` e transformar a tabela de programação em uma ferramenta simples para servidores, com busca, filtros, edição de data/hora, municípios, local, categoria, situação, observações e publicação.
+
+Incluir:
+- Importar JSON em lote;
+- Pré-visualizar e validar importação;
+- Revisar pendências, inclusive local/endereço incompleto;
+- Aprovar e publicar em lote;
+- Editar uma atividade com formulário didático;
+- Cancelar ou remarcar um evento;
+- Exportar CSV/JSON;
+- Histórico de alterações com usuário e horário;
+- Proteção de rotas administrativas por autenticação e autorização reais.
+
+Se o projeto já tiver Supabase ou outro backend, REUTILIZE-O. Se só houver dados estáticos locais, primeiro implemente uma importação local que preencha o site sem trabalho manual e explique, antes de criar um backend, o que falta para que alterações feitas pelo painel apareçam publicamente em todos os dispositivos sem nova publicação. Nunca apresente `localStorage` ou dados fictícios como atualização online real. Não exponha senhas ou chaves privadas.
+
+6. FONTE, STATUS E CUIDADOS INSTITUCIONAIS
+- Fonte: programação estadual dos JASC 2026, Fesporte, PDF de 74 páginas, disponibilizado para o projeto.
+- Dados importados são programação prevista, NÃO resultados em tempo real e NÃO confirmação de que o evento ocorreu. Não marcar um jogo "Encerrado" ou "Concluído" apenas porque a data passou.
+- Preservar `pagina_pdf` para conferência editorial.
+- As tabelas contêm fases com adversários ainda indefinidos; manter jogo/data/horário quando informados e apontar "adversários a definir".
+- A capa do PDF informa 12 a 28 de novembro, mas há competições antecipadas. Não descartar registros de novembro anteriores à abertura institucional de 14/11.
+- Proteger contra duplicações e alterações destrutivas, pois o portal é institucional.
+
+7. TESTES E ENTREGA
+- Após importar, mostrar na tela de administração a contagem dos 487 eventos, 915 inscrições e 31 locais; apontar qualquer divergência, não ocultá-la.
+- Testar filtros por cidade, datas, feminino/masculino e "Só Rio do Sul".
+- Testar exibição de um confronto com duas cidades, uma fase sem adversários definidos e uma inscrição de esporte individual sem horário.
+- Verificar responsividade mobile, acessibilidade, links e performance.
+- Preservar página inicial, logos, tipografia e identidade existentes.
+- Entregar um resumo do que foi implementado, o que foi importado como rascunho, como aprovar em lote, como editar e o que ainda depende de backend ou validação humana.
+
+PRIORIDADE MÁXIMA: uma única importação em lote, com dados oficiais organizados e sem recriar o site do zero. Quero economizar créditos de IA, portanto implemente as mudanças de forma coesa e evite revisões de estilo que não pedi.

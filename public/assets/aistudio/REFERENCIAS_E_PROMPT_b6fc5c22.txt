@@ -1,0 +1,35 @@
+REFERÊNCIAS VISUAIS REAIS — PORTAL JASC 2026
+Site principal: https://pixel-perfect-picture-match-168.lovable.app
+
+ARQUIVOS DE IMAGEM ENCONTRADOS NA PÁGINA PUBLICADA
+1) Hero (foto com atletas):
+https://pixel-perfect-picture-match-168.lovable.app/assets/hero-athletes-DbjhHNOR.jpg
+
+2) Logos institucionais da organização:
+https://pixel-perfect-picture-match-168.lovable.app/__l5e/assets-v1/1659094d-0f64-4a33-b7f8-aa2e75997bcc/logos-realizacao.png
+
+3) Card/notícia de inauguração da arena:
+https://pixel-perfect-picture-match-168.lovable.app/__l5e/assets-v1/247e9626-c83e-4fed-b85d-2647381d93de/card-abertura-nova-arena.jpg
+
+4) Logo JASC 2026 em SVG:
+https://pixel-perfect-picture-match-168.lovable.app/__l5e/assets-v1/c90952ce-6b6d-4b34-9cd3-1d818419a572/jasc-2026-logo.svg
+
+IMPORTANTE: Estes são recursos originais do site, NÃO capturas do layout completo.
+A página HTML incluída neste pacote carrega essas imagens da internet quando aberta no seu navegador.
+
+TRECHO PARA ACRESCENTAR AO PROMPT DE RECRIAÇÃO
+
+Use como referência visual prioritária o site publicado:
+https://pixel-perfect-picture-match-168.lovable.app
+
+Reaproveite as imagens originais listadas acima, sem substituí-las por imagens genéricas. Preserve o enquadramento, proporções e aplicação dessas imagens no layout. Consulte todas as capturas de tela anexadas pelo usuário, se houver. As capturas de tela do navegador representam o layout original e devem prevalecer sobre o HTML e CSS do protótipo anexado em caso de divergência. Não invente estrutura, fontes ou dimensões não observadas. Inspecione desktop (1440px) e mobile (390px) e compare a implementação por capturas lado a lado antes de declarar fidelidade Pixel Perfect.
+
+PARA CAPTURAR O DESIGN REAL NO CHROME (MAC)
+1. Abra o site publicado no Chrome ou Opera.
+2. Pressione Command + Option + I (Ferramentas do desenvolvedor).
+3. Pressione Command + Shift + P.
+4. Pesquise: Capture full size screenshot.
+5. Salve a captura completa da página inicial.
+6. Para mobile, ative a barra de dispositivos em Command + Shift + M, ajuste para 390 x 844 e repita a captura.
+7. Repita nas páginas de Programação, Modalidades, Locais, Notícias e Resultados, se disponíveis.
+8. Anexe as imagens capturadas junto ao ZIP de código e ao prompt.

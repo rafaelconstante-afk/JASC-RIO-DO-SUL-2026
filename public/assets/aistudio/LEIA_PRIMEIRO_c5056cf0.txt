@@ -1,0 +1,8 @@
+PACOTE DE RECRIAÇÃO VISUAL — JASC 2026
+
+1. Envie este pacote ZIP à IA de desenvolvimento, se ela aceitar ZIP. Caso contrário, extraia e anexe o screenshot da pasta 01_referencia_visual e os arquivos da pasta 02_codigo_base.
+2. Copie o conteúdo de PROMPT_MESTRE_PARA_IA.txt e cole no chat dessa IA.
+3. URL original: https://pixel-perfect-picture-match-168.lovable.app
+4. A captura é uma imagem vertical reduzida (370×2048 px) de página inteira, NÃO a largura real do desktop. Ela é ótima para estrutura e estética, mas não dá medidas pixel-perfect por si só.
+5. O código é uma recriação independente, não um export do Lovable. Dados de programação e locais podem ser demonstrativos.
+6. Se possível, anexe screenshots individuais em alta resolução de seções e versão mobile para melhorar a comparação.
