@@ -50,7 +50,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, compact = false }) 
         {/* Left: Time and timezone */}
         <div className="flex items-center gap-4 md:border-r md:border-border/80 md:pr-6 shrink-0">
           <div className="text-left md:text-center min-w-[70px]">
-            <span className="block font-display text-3xl sm:text-4xl text-primary font-bold tracking-tight leading-none">
+            <span className="block font-display text-3xl sm:text-4xl text-primary font-bold tracking-[0.08em] competition-time leading-none">
               {event.time}
             </span>
             <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block mt-0.5">

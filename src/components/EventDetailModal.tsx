@@ -87,7 +87,9 @@ export const EventDetailModal: React.FC = () => {
             <Clock className="size-4 text-primary shrink-0" />
             <div>
               <span className="text-xs text-muted-foreground block">Horário</span>
-              <span className="font-semibold">{selectedEventDetail.time} (Horário oficial de Brasília)</span>
+              <span className="font-semibold">
+                <span className="tracking-[0.08em] competition-time">{selectedEventDetail.time}</span> (Horário oficial de Brasília)
+              </span>
             </div>
           </div>
 

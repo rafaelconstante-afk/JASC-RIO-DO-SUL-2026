@@ -627,7 +627,7 @@ WITH CHECK (true);
                         <tr key={evt.id} className="hover:bg-cream/40 transition-colors">
                           <td className="p-3.5 whitespace-nowrap font-medium">
                             <div>{evt.date}</div>
-                            <div className="text-muted-foreground">{evt.time}</div>
+                            <div className="text-muted-foreground tracking-[0.08em] competition-time">{evt.time}</div>
                           </td>
                           <td className="p-3.5 font-bold text-primary whitespace-nowrap">
                             {evt.sport}
@@ -875,7 +875,7 @@ WITH CHECK (true);
                               <span>·</span>
                               <span className="text-muted-foreground">{evt.category}</span>
                               <span>·</span>
-                              <span className="font-semibold text-primary">{evt.date} às {evt.time}</span>
+                              <span className="font-semibold text-primary">{evt.date} às <span className="tracking-[0.08em] competition-time">{evt.time}</span></span>
                             </div>
                             <h4 className="font-condensed text-lg font-bold text-foreground">
                               {evt.title}
